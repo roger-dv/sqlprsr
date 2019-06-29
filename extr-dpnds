@@ -1,0 +1,5 @@
+#!/bin/bash
+# extract dependencies - notice that the Reverse Polish Notation
+# commands emitted from the parser is reversed in order to make
+# it easy to see dependencies from bottom up
+./sqlprsr "$@" 2>/dev/null|grep '^rpn:\s\s*\(STMT\|CREATE_VDS\|CREATE_TABLE\|DROP\|TABLE\|WITH_NAME\|WITH_DOT_NAME\)'|tac
