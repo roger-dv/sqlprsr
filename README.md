@@ -25,8 +25,8 @@ It has also been build on Windows under `mingw`, using `gcc 4.5` C compiler.
 
 ## Status
 
-The parser is a work in progress. It has been developed against a set of 450 real-world SQL files and is successfully parsing all but around 20 of these at the time of writing (and the remaining errors are mostly minor in scope to address). The body of real-world SQL queries varying in complexity but some are 50 to 200 lines of complex SQL - nested sub selection, use of `WITH`, union set operations, windowing, etc.
+The parser is a work in progress. It has been developed against a set of a few hundred real-world SQL script files (all doing materialization of tables or VDSs where there are inter-dependencies involved) and it is successfully parsing all but around 20 of these at the time of writing (and the remaining errors are mostly minor in scope to address). The body of real-world SQL queries vary in complexity but some are 50 to 200 lines of complex SQL - nested sub selection, use of `WITH`, union set operations, windowing, etc.
 
 The parser emits a Reverse Polish Notation - refer to the O'Reilly flex and bison book to learn more about that.
 
-The current intention is to use this sql parser to determine dependency relationships among a large body of complex queries. It may likely be used later on to enforce validations rules and possibly to extract terminal node sub select queries. This latter would constitute a kind of dissection of a complex nested query into its constituent components.
+The current intention is to use this sql parser to determine dependency relationships among a large body of interrelated complex queries that are doing materialization. It may likely be used later on to enforce validations rules and possibly to extract terminal node sub select queries. This latter would constitute a kind of dissection of a complex nested query into its constituent components.
